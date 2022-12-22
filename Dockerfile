@@ -73,7 +73,7 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
         mmcv \
         mmcls \
         jupyterlab \
-        -i https://mirrors.ustc.edu.cn/pypi/web/simple -f https://download.pytorch.org/whl/torch_stable.html && \
+        -i https://mirrors.aliyun.com/pypi/simple/ -f https://download.pytorch.org/whl/torch_stable.html && \
     $PIP_INSTALL \
         detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu110/torch1.7/index.html && \
     conda clean -y --all && \
