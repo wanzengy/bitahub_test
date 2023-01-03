@@ -9,7 +9,7 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
     CONDA_INSTALL="conda install -y" && \
     apt-get update && \
     apt-get install -y ffmpeg libsm6 libxext6 && \
-    pip install --upgrade pip && \
+    pip install --upgrade pip -i https://mirrors.aliyun.com/pypi/simple/ && \
 	$PIP_INSTALL \
         numpy \
         pillow \
@@ -29,6 +29,7 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
         timm \
         tensorboard \
         openmim \
+        torch-geometric \
         -i https://mirrors.aliyun.com/pypi/simple/ && \
     mim install mmcv-full && \
     $PIP_INSTALL \
@@ -37,5 +38,4 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
         torch-sparse \
         torch-cluster \
         torch-spline-conv \
-        torch-geometric \
         -f https://data.pyg.org/whl/torch-1.12.0+cu113.html
