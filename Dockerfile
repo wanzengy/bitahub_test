@@ -7,8 +7,9 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
     #PIP_INSTALL_QH="python -m pip --no-cache-dir install --upgrade -i https://pypi.tuna.tsinghua.edu.cn/simple" && \
     PIP_INSTALL="python -m pip --no-cache-dir install --user" && \
     CONDA_INSTALL="conda install -y" && \
-    apt-get update && \
+    apt-get update && apt-get upgrade -y && \
     apt-get install -y ffmpeg libsm6 libxext6 && \
+    apt-get autoclean && apt-get autoremove &&\
     pip install --upgrade pip -i https://mirrors.aliyun.com/pypi/simple/ && \
 	$PIP_INSTALL \
         numpy \
