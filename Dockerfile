@@ -30,7 +30,8 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
         tensorboard \
         openmim \
         torch-geometric \
-        -i https://mirrors.aliyun.com/pypi/simple/ && \
+         jupyterlab \
+        -i https://mirrors.aliyun.com/pypi/simple/ -f https://download.pytorch.org/whl/torch_stable.html && \
     mim install mmcv-full && \
     $PIP_INSTALL \
         pyg-lib \
@@ -38,4 +39,5 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
         torch-sparse \
         torch-cluster \
         torch-spline-conv \
-        -f https://data.pyg.org/whl/torch-1.12.0+cu113.html
+        -f https://data.pyg.org/whl/torch-1.12.0+cu113.html && \
+    echo 'alias jupyter-notebook="jupyter-notebook --allow-root"' >> ~/.bashrc
