@@ -41,3 +41,5 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
         torch-spline-conv \
         -f https://data.pyg.org/whl/torch-1.12.0+cu113.html && \
     echo 'alias jupyter-notebook="jupyter-notebook --allow-root"' >> ~/.bashrc
+
+ EXPOSE 6006b
