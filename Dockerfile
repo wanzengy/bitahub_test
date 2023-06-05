@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.12.0-cuda11.3-cudnn8-devel
+FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
 
 ENV PATH /root/.local/bin:$PATH
 ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu:/usr/local/cuda-11.3/lib64:$LD_LIBRARY_PATH
@@ -29,17 +29,17 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
         timm \
         tensorboard \
         openmim \
-        torch-geometric \
+        torch_geometric \
          jupyterlab \
         -i https://mirrors.aliyun.com/pypi/simple/ -f https://download.pytorch.org/whl/torch_stable.html && \
     mim install mmcv-full && \
     $PIP_INSTALL \
         pyg-lib \
-        torch-scatter \
-        torch-sparse \
-        torch-cluster \
-        torch-spline-conv \
-        -f https://data.pyg.org/whl/torch-1.12.0+cu113.html && \
+        torch_scatter \
+        torch_sparse \
+        torch_cluster \
+        torch_spline_conv \
+        -f https://data.pyg.org/whl/torch-2.0.0+cu117.html && \
     echo 'alias jupyter-notebook="jupyter-notebook --allow-root"' >> ~/.bashrc
 
  EXPOSE 6006
