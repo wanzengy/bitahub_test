@@ -3,6 +3,9 @@ FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-devel
 ENV PATH /root/.local/bin:$PATH
 ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu:/usr/local/cuda-11.3/lib64:$LD_LIBRARY_PATH
 
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
     #PIP_INSTALL_QH="python -m pip --no-cache-dir install --upgrade -i https://pypi.tuna.tsinghua.edu.cn/simple" && \
     PIP_INSTALL="python -m pip --no-cache-dir install" && \
