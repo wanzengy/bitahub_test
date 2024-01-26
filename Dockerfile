@@ -23,6 +23,7 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
         scipy \
         matplotlib \
         h5py \
+	hdf5plugin\
         tqdm \
         argparse \
         progress \
@@ -32,17 +33,15 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list &&
         timm \
         tensorboard \
         openmim \
+	determined\
         torch_geometric \
-         jupyterlab \
+        jupyterlab \
         -i https://mirrors.aliyun.com/pypi/simple/ -f https://download.pytorch.org/whl/torch_stable.html && \
-    mim install mmcv-full && \
+    mim install mmcv==2.0.0 && \
     $PIP_INSTALL \
         pyg-lib \
         torch_scatter \
         torch_sparse \
         torch_cluster \
         torch_spline_conv \
-        -f https://data.pyg.org/whl/torch-2.0.0+cu117.html && \
-    echo 'alias jupyter-notebook="jupyter-notebook --allow-root"' >> ~/.bashrc
-
- EXPOSE 6006
+        -f https://data.pyg.org/whl/torch-2.0.0+cu117.html
